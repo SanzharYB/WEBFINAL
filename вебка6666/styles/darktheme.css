@@ -1,37 +1,64 @@
-body {
-  font-family: Arial, sans-serif;
-  transition: background-color 0.5s, color 0.5s;
-}
 
-/* Day Theme */
-.day-theme {
-  background-color: white;
-  color: black;
-}
 
-/* Night Theme */
+/* Night Theme Styles */
 .night-theme {
-  background-color: black;
+  background: #121212;
+  color: #e0e0e0;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-#theme-toggle {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 20px;
+.night-theme .container {
+  background-color: rgba(33, 33, 33, 0.9);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
 }
 
-.hidden {
-  display: none; /* Hide content by default */
-
+.night-theme nav {
+  background-color: rgba(50, 50, 50, 0.8);
 }
 
-.content {
-  margin: 20px 0;
+.night-theme nav a {
+  color: #b0bec5;
 }
 
-#read-more {
-  cursor: pointer;
-  color: blue;
-  text-decoration: underline;
+.night-theme nav a:hover {
+  color: #80cbc4;
 }
+
+.night-theme footer {
+  background-color: #1e1f26;
+  border-top: 5px solid #3498db;
+}
+
+/* Day Theme Styles */
+.day-theme {
+  background: #f0f2f5;
+  color: #444;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.day-theme .container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.day-theme nav {
+  background-color: #3498db;
+}
+
+.day-theme nav a {
+  color: #ffffff;
+}
+
+.day-theme nav a:hover {
+  color: #e0e0e0;
+}
+
+.day-theme footer {
+  background-color: #3498db;
+  border-top: 5px solid #1e88e5;
+}
+
+
+
