@@ -1,154 +1,150 @@
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+/* Global Reset */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-header {
-  background-color: #333; /* Dark background */
-  color: #fff; /* White text */
-  padding: 20px; /* Consistent padding */
-  text-align: center; /* Center text */
+/* Body Styling */
+body {
+  background: linear-gradient(135deg, #1abc9c, #3498db);
+  color: #444;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+/* Header Styles */
+#header {
+  background-color: #1e1f26;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  border-bottom: 5px solid #3498db;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .header-title {
-  margin: 0; /* Remove default margin */
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
-
 #navbar {
-  margin: 10px 0; /* Adjust margin for spacing */
+  margin-top: 20px;
+  justify-content: center;
+  gap: 15px;
 }
 
 .nav-link {
-  color: #fff; /* White color for links */
-  text-decoration: none; /* No underline */
-  padding: 0 10px; /* Padding for spacing between links */
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-  text-decoration: underline; /* Underline on hover */
-  color: #ddd; /* Light gray color on hover */
+  background-color: #3498db;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
 }
-
 .divider {
   border: 0;
-  height: 1px;
-  background: #fff; /* White divider line */
-  margin: 10px 0; /* Adjust margin for better spacing */
+  height: 2px;
+  background: #ddd;
+  width: 80%;
+  margin: 30px auto;
+  opacity: 0.5;
 }
 
+/* Main Content Styles */
 .main-content {
-  max-width: 800px; /* Max width for consistency */
-  margin: 20px auto; /* Center content */
-  padding: 20px;
-  background-color: #fff; /* White background */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  overflow: hidden; /* Prevent overflow from visible areas */
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  font-size: 1.15em;
+  line-height: 1.8;
+  backdrop-filter: blur(10px);
 }
-
-.form-container {
-  background-color: white; /* White background for form */
-  padding: 20px; /* Padding for form */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow */
-  max-width: 400px; /* Max width for form */
-  margin: 20px auto; /* Center form */
-}
-
-label {
-  display: block; /* Block display for labels */
-  margin-bottom: 5px; /* Spacing below labels */
-}
-
-input {
-  width: 100%; /* Full width for inputs */
-  padding: 10px; /* Padding for inputs */
-  margin-bottom: 10px; /* Margin below inputs */
-  border: 1px solid #ccc; /* Light border for inputs */
-  border-radius: 4px; /* Rounded corners */
-}
-
-button {
-  padding: 10px 15px; /* Padding for buttons */
-  background-color: #007bff; /* Primary button color */
-  color: white; /* White text for buttons */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-}
-
-button:hover {
-  background-color: #0056b3; /* Darker on hover */
-}
-
 .section-heading {
-  font-size: 1.5em; /* Heading size */
-  color: #333; /* Dark color for headings */
-}
-
-.footer-text {
-  margin: 5px 0; /* Spacing for footer text */
+  font-size: 2em;
+  color: #ecf0f1;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  text-align: center;
+  position: relative;
 }
 
 #footer {
-  background-color: #333; /* Dark background for footer */
-  color: #fff; /* White text */
-  padding: 10px; /* Padding for footer */
-  text-align: center; /* Center footer text */
+  background-color: #1e1f26;
+  color: #ccc;
+  padding: 20px;
+  text-align: center;
+  border-top: 5px solid #3498db;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 40px;
+  border-radius: 12px;
 }
 
-#welcome-message {
-  color: black; /* Black text for welcome message */
+.footer-text {
+  margin: 5px 0;
+  font-size: 0.9em;
 }
 
-#login2 {
-  color: black; /* Black text for login heading */
+/* Accessibility Focus */
+.focused {
+  outline: 3px solid #3498db;
+  border-radius: 10px;
 }
 
-#usernameeeeeee {
-  color: black; /* Black text for username label */
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1; /* Starting opacity */
-  }
-  to {
-    opacity: 0; /* Ending opacity */
-  }
-}
-
-.fade-out {
-  animation: fadeOut 1s ease forwards; /* Apply fade out animation */
-}
-
-.flex-container {
-  display: flex; /* Flexbox for container */
-  gap: 1rem; /* Gap between items */
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-}
-
-.flex-item {
-  flex: 1 1 auto; /* Allow items to grow and shrink as needed */
-}
-
-a:focus,
-button:focus {
-  outline: 2px solid #f90; /* Outline for focus state */
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
-  .story-section {
-    flex-direction: column; /* Column layout on small screens */
-    align-items: center; /* Center items */
+  .main-content {
+    padding: 20px;
+  }
+
+  #navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-link {
+    margin: 5px 0;
+  }
+
+  .section-heading {
+    font-size: 1.8em;
   }
 }
 
-/* Responsive Image Styles */
-img {
-  max-width: 100%; /* Ensure images don't exceed container width */
-  height: auto; /* Maintain aspect ratio */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+
+  .header-title {
+    font-size: 2em;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
