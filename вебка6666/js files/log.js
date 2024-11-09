@@ -1,69 +1,102 @@
-function showForm(formType) {
-    document.getElementById("registerForm").style.display = formType === 'register' ? 'block' : 'none';
-    document.getElementById("loginForm").style.display = formType === 'login' ? 'block' : 'none';
-}
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-function registerUser() {
-    const name = document.getElementById("regName").value;
-    const email = document.getElementById("regEmail").value;
-    const password = document.getElementById("regPassword").value;
-    const confirmPassword = document.getElementById("regConfirmPassword").value;
-    const regSuccessMessage = document.getElementById("regSuccessMessage");
-    const regErrorMessage = document.getElementById("regErrorMessage");
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
 
-    regSuccessMessage.textContent = "";
-    regErrorMessage.textContent = "";
+    let isValid = true;
+    const latinPattern = /^[A-Za-z0-9_\-@.]+$/;
+    const hasNumber = /\d/;
 
-    if (localStorage.getItem(email)) {
-        regErrorMessage.textContent = "Email is already registered!";
-        return false;
+    if (username.value.trim() === '') {
+        username.placeholder = 'Please enter your username';
+        username.classList.add('error');
+        isValid = false;
+    } else if (!latinPattern.test(username.value.trim())) {
+        username.value = '';
+        username.placeholder = 'Use only Latin characters';
+        username.classList.add('error');
+        isValid = false;
     }
 
-    if (password !== confirmPassword) {
-        alert("Passwords do not match!");
-        return false;
+    if (password.value.trim() === '') {
+        password.placeholder = 'Please enter your password';
+        password.classList.add('error');
+        isValid = false;
+    } else if (password.value.includes(' ')) {
+        password.placeholder = 'Password must not contain spaces.';
+        password.classList.add('error');
+        isValid = false;
+    } else if (password.value.length < 6) {
+        password.placeholder = 'Password must be at least 6 characters long.';
+        password.classList.add('error');
+        isValid = false;
+    } else if (!hasNumber.test(password.value)) {
+        password.placeholder = 'Password must contain at least one number.';
+        password.classList.add('error');
+        isValid = false;
+    } else if (!latinPattern.test(password.value.trim())) {
+        password.placeholder = 'Password must contain only Latin characters.';
+        password.classList.add('error');
+        isValid = false;
     }
 
-    localStorage.setItem(email, JSON.stringify({ name: name, password: password }));
-    regSuccessMessage.textContent = "Registration successful! You can now log in.";
-    return false; 
-}
+    if (!isValid) {
+        clearInvalidFields(password);
+        return;
+    }
 
-function loginUser() {
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
-    const loginSuccessMessage = document.getElementById("loginSuccessMessage");
-    const loginErrorMessage = document.getElementById("loginErrorMessage");
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(user => user.name === username.value.trim() && user.password === password.value.trim());
 
-    loginSuccessMessage.textContent = "";
-    loginErrorMessage.textContent = "";
-
-    // Check if email exists and password matches
-    const userData = JSON.parse(localStorage.getItem(email));
-    if (userData && userData.password === password) {
-        loginSuccessMessage.textContent = `Welcome back, ${userData.name}!`;
-        localStorage.setItem('loggedInUser', email); // Store logged in user
-        showForm('login'); // Switch to login form
-        return false; // Prevent form submission
+    if (user) {
+        event.preventDefault();
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+        window.location.href = "profile.html";
     } else {
-        loginErrorMessage.textContent = "Invalid email or password!";
-        return false; // Prevent form submission
+        alert("User does not exist or password is incorrect.");
+        clearFields();
+    }
+});
+
+function clearFields() {
+    document.getElementById('username').value = '';
+    document.getElementById('password').value = '';
+}
+
+function clearInvalidFields(password) {
+    if (password.classList.contains('error')) {
+        password.value = '';
     }
 }
 
-function logout() {
-    localStorage.removeItem('loggedInUser'); // Clear logged in user
-    document.getElementById("loginSuccessMessage").textContent = "You have logged out successfully!";
-    showForm('login'); 
-}
+document.getElementById('username').addEventListener('input', function () {
+    if (this.value.trim() !== '') {
+        this.classList.remove('error');
+    }
+});
 
-window.onload = function() {
-    if (localStorage.getItem('loggedInUser')) {
-        const loggedInUserEmail = localStorage.getItem('loggedInUser');
-        const userData = JSON.parse(localStorage.getItem(loggedInUserEmail));
-        document.getElementById("loginSuccessMessage").textContent = `Welcome back, ${userData.name}!`;
-        showForm('login'); 
-    } else {
-        showForm('register');
+document.getElementById('password').addEventListener('input', function () {
+    if (this.value.trim() !== '') {
+        this.classList.remove('error');
+    }
+});
+
+document.getElementById('googleSignIn').addEventListener('click', function (event) {
+    event.preventDefault();
+    alert('Google Sign In is not implemented yet.');
+});
+
+document.getElementById('username').addEventListener('keydown', handleKey);
+document.getElementById('password').addEventListener('keydown', handleKey);
+
+function handleKey(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+    } else if (event.key === 'Escape') {
+        clearFields();
+        document.getElementById('username').classList.remove('error');
+        document.getElementById('password').classList.remove('error');
     }
 }

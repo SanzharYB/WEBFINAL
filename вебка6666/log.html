@@ -3,72 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication System</title>
+    <title>Sign In</title>
     <link rel="stylesheet" href="styles/log.css">
     <link rel="stylesheet" href="styles/darktheme.css">
+
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav>
-        <a class="nav-link" href="home.html">Home</a>
-        <a href="#" onclick="showForm('register')">Register</a>
-        <a href="#" onclick="showForm('login')">Login</a>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
     </nav>
-    <main>
-    <!-- Registration Form -->
-    <div class="container" id="registerForm">
-        <h2>Register</h2>
-        <form onsubmit="return registerUser()">
-            <div class="form-group">
-                <label for="regName">Name:</label>
-                <input type="text" id="regName" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="regEmail">Email:</label>
-                <input type="email" id="regEmail" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="regPassword">Password:</label>
-                <input type="password" id="regPassword" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="regConfirmPassword">Confirm Password:</label>
-                <input type="password" id="regConfirmPassword" name="confirmPassword" required>
-            </div>
-            <button type="submit" class="btn">Register</button>
-            <p class="success" id="regSuccessMessage"></p>
-            <p class="error" id="regErrorMessage"></p>
-        </form>
-    </div>
+<div class="container">
+    <h2>Log In</h2>
+    <form id="loginForm" novalidate>
+        <label for="username"></label>
+        <input type="text" id="username" placeholder="Username" required>
+        <span class="error-message" id="usernameError"> </span>
 
-    <!-- Login Form -->
-    <div class="container" id="loginForm">
-        <h2>Login</h2>
-        <form onsubmit="return loginUser()">
-            <div class="form-group">
-                <label for="loginEmail">Email:</label>
-                <input type="email" id="loginEmail" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" name="password" required>
-            </div>
-            <button type="submit" class="btn">Login</button>
-            <p class="success" id="loginSuccessMessage"></p>
-            <p class="error" id="loginErrorMessage"></p>
-        </form>
-    </div>
-</main>
-    <!-- Footer -->
-    <footer>
-        <p>Team Members: Sanzhar, Alisher, Bekzhan</p>
-        <p>Date: 2024-09-10 | Contact: info@clothingstore.com</p>
-    </footer>
+        <label for="password"></label>
+        <input type="password" id="password" placeholder="Password" required>
+        <span class="error-message" id="passwordError"></span>
 
-    <!-- JavaScript -->
-    <script src="js files/log.js">
-    </script>
-  <script src="js files/script.js"></script>
+        <button type="submit">Sign In</button>
+    </form>
+    <div class="google-signin">
+        <button class="google-btn" id="googleSignIn">
+            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" class="google-logo">
+            Sign in with Google
+        </button>
+    </div>
+</div>
+<script src="js files/log.js"></script>
+<script src="js files/script.js"></script>
 
 </body>
 </html>
