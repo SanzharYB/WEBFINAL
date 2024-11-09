@@ -1,0 +1,154 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  padding: 20px; /* Consistent padding */
+  text-align: center; /* Center text */
+}
+
+.header-title {
+  margin: 0; /* Remove default margin */
+}
+
+#navbar {
+  margin: 10px 0; /* Adjust margin for spacing */
+}
+
+.nav-link {
+  color: #fff; /* White color for links */
+  text-decoration: none; /* No underline */
+  padding: 0 10px; /* Padding for spacing between links */
+}
+
+.nav-link:hover {
+  text-decoration: underline; /* Underline on hover */
+  color: #ddd; /* Light gray color on hover */
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #fff; /* White divider line */
+  margin: 10px 0; /* Adjust margin for better spacing */
+}
+
+.main-content {
+  max-width: 800px; /* Max width for consistency */
+  margin: 20px auto; /* Center content */
+  padding: 20px;
+  background-color: #fff; /* White background */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Prevent overflow from visible areas */
+}
+
+.form-container {
+  background-color: white; /* White background for form */
+  padding: 20px; /* Padding for form */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow */
+  max-width: 400px; /* Max width for form */
+  margin: 20px auto; /* Center form */
+}
+
+label {
+  display: block; /* Block display for labels */
+  margin-bottom: 5px; /* Spacing below labels */
+}
+
+input {
+  width: 100%; /* Full width for inputs */
+  padding: 10px; /* Padding for inputs */
+  margin-bottom: 10px; /* Margin below inputs */
+  border: 1px solid #ccc; /* Light border for inputs */
+  border-radius: 4px; /* Rounded corners */
+}
+
+button {
+  padding: 10px 15px; /* Padding for buttons */
+  background-color: #007bff; /* Primary button color */
+  color: white; /* White text for buttons */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker on hover */
+}
+
+.section-heading {
+  font-size: 1.5em; /* Heading size */
+  color: #333; /* Dark color for headings */
+}
+
+.footer-text {
+  margin: 5px 0; /* Spacing for footer text */
+}
+
+#footer {
+  background-color: #333; /* Dark background for footer */
+  color: #fff; /* White text */
+  padding: 10px; /* Padding for footer */
+  text-align: center; /* Center footer text */
+}
+
+#welcome-message {
+  color: black; /* Black text for welcome message */
+}
+
+#login2 {
+  color: black; /* Black text for login heading */
+}
+
+#usernameeeeeee {
+  color: black; /* Black text for username label */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; /* Starting opacity */
+  }
+  to {
+    opacity: 0; /* Ending opacity */
+  }
+}
+
+.fade-out {
+  animation: fadeOut 1s ease forwards; /* Apply fade out animation */
+}
+
+.flex-container {
+  display: flex; /* Flexbox for container */
+  gap: 1rem; /* Gap between items */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.flex-item {
+  flex: 1 1 auto; /* Allow items to grow and shrink as needed */
+}
+
+a:focus,
+button:focus {
+  outline: 2px solid #f90; /* Outline for focus state */
+}
+
+@media (max-width: 768px) {
+  .story-section {
+    flex-direction: column; /* Column layout on small screens */
+    align-items: center; /* Center items */
+  }
+}
+
+/* Responsive Image Styles */
+img {
+  max-width: 100%; /* Ensure images don't exceed container width */
+  height: auto; /* Maintain aspect ratio */
+}

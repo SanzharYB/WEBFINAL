@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Day Theme */
+.day-theme {
+  background-color: white;
+  color: black;
+}
+
+/* Night Theme */
+.night-theme {
+  background-color: black;
+}
+
+#theme-toggle {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.hidden {
+  display: none; /* Hide content by default */
+
+}
+
+.content {
+  margin: 20px 0;
+}
+
+#read-more {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}

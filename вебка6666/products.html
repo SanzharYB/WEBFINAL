@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Filters</title>
+    <link rel="stylesheet" href="styles/products.css">
+    <link rel="stylesheet" href="styles/darktheme.css">
+
+</head>
+
+<body>
+    <header id="header">
+        <h1 class="header-title">Always Clothed</h1>
+        <nav id="navbar">
+            <a class="nav-link" href="home.html">Home</a> |
+            <a class="nav-link" href="products.html">Products</a> |
+            <a class="nav-link" href="about.html">About Us</a> |
+            <a class="nav-link" href="contact.html">Contact us</a> |
+            <a class="nav-link" href="faq.html">FAQ</a>
+        </nav>
+        <hr class="divider">
+    </header>
+
+    <main class="main-content">
+        <section id="filter-section">
+            <h2 class="section-heading">Filters</h2>
+            <div class="filter-group">
+                <label for="gender">Gender:</label>
+                <select id="gender">
+                    <option value="all">All</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="type">Type:</label>
+                <select id="type">
+                    <option value="all">All</option>
+                    <option value="shirt">Shirt</option>
+                    <option value="pants">Pants</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="season">Season:</label>
+                <select id="season">
+                    <option value="all">All</option>
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="min-price">Min Price:</label>
+                <input type="number" id="min-price" placeholder="0">
+            </div>
+            <div class="filter-group">
+                <label for="max-price">Max Price:</label>
+                <input type="number" id="max-price" placeholder="1000">
+            </div>
+            <button class="filter-button" id="apply-filters">Apply Filters</button>
+            <button class="filter-button" id="clear-filters">Clear Filters</button>
+        </section>
+
+        <section class="product-grid">
+            <div class="product-item" data-gender="male" data-type="shirt" data-season="summer" data-price="25.00">
+                <div class="product-card">
+                    <img src="shirt.jpg" alt="Shirt">
+                    <h3>Summer Shirt</h3>
+                    <p>Price: $25</p>
+                </div>
+            </div>
+
+            <div class="product-item" data-gender="male" data-type="shirt" data-season="summer" data-price="25.00">
+                <div class="product-card">
+                    <img src="shirt.jpg" alt="Shirt">
+                    <h3>Summer Shirt</h3>
+                    <p>Price: $25</p>
+                </div>
+            </div>
+
+            <div class="product-item" data-gender="female" data-type="dress" data-season="fall" data-price="50.00">
+                <div class="product-card">
+                    <img src="images/dress.jpg" alt="Elegant Dress">
+                    <h3>Elegant Dress</h3>
+                    <p>Price: $50</p>
+                </div>
+            </div>
+
+            <div class="product-item" data-gender="unisex" data-type="shoes" data-season="spring" data-price="20.00">
+                <div class="product-card">
+                    <img src="images/kid-shoes.jpg" alt="Kids Shoes">
+                    <h3>Kids Shoes</h3>
+                    <p>Price: $20</p>
+                </div>
+            </div>
+
+            <div class="product-item" data-gender="male" data-type="coat" data-season="winter" data-price="100.00">
+                <div class="product-card">
+                    <img src="images/coat.jpg" alt="Winter Coat">
+                    <h3>Winter Coat</h3>
+                    <p>Price: $100</p>
+                </div>
+            </div>
+
+
+            <!-- Add more product items as needed -->
+        </section>
+    </main>
+
+    <footer id="footer">
+        <p class="footer-text">© Always Clothed</p>
+    </footer>
+
+    <script src="js files/products.js"></script>
+</body>
+
+</html>
