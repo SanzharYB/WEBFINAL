@@ -240,6 +240,7 @@ body {
 @media (max-width: 480px) {
   .main-content {
     padding: 10px;
+    
   }
 
   .product-grid {

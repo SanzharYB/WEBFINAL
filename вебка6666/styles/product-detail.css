@@ -46,6 +46,7 @@ header, footer {
 
 .main-content {
   padding: 1rem;
+  width: 900px;
 }
 
 .product-description {

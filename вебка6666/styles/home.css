@@ -6,7 +6,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Body Styling */
+
 body {
   background: linear-gradient(135deg, #1abc9c, #3498db);
   color: #444;
@@ -76,6 +76,7 @@ body {
 /* Main Content Styles */
 .main-content {
   max-width: 1200px;
+  width: 900px;
   margin: 40px auto;
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.1);
