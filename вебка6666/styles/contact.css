@@ -38,7 +38,6 @@ body {
 /* Navigation */
 #navbar {
   margin-top: 20px;
-  display: flex;
   justify-content: center;
   gap: 15px;
 }
@@ -47,10 +46,19 @@ body {
   color: #ecf0f1;
   text-decoration: none;
   padding: 10px 20px;
+  font-weight: 500;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
 }
+
+.nav-link:hover {
+  background-color: #3498db;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
 
 .nav-link:hover {
   background-color: #3498db;
