@@ -1,40 +1,33 @@
-// Wait for the DOM to be fully loaded before attaching event listeners
 document.addEventListener('DOMContentLoaded', function () {
 
     // Grab references to form elements
     const loginForm = document.getElementById('loginForm');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const usernameError = document.getElementById('usernameError');
-    const passwordError = document.getElementById('passwordError');
     const googleSignInButton = document.getElementById('googleSignIn');
+    const loginEmailInput = document.getElementById("loginEmail");
+    const loginPasswordInput = document.getElementById("loginPassword");
+    const loginSuccessMessage = document.getElementById("loginSuccessMessage");
+    const loginErrorMessage = document.getElementById("loginErrorMessage");
 
     // Form submission event listener
     loginForm.addEventListener('submit', function (e) {
-        e.preventDefault();  // Prevents form from submitting and refreshing page
-        
-        // Clear previous error messages
-        usernameError.textContent = '';
-        passwordError.textContent = '';
+        e.preventDefault(); // Prevent form submission
 
-        // Check if the fields are valid
-        let isValid = true;
+        // Clear previous messages
+        loginSuccessMessage.textContent = "";
+        loginErrorMessage.textContent = "";
 
-        if (usernameInput.value.trim() === '') {
-            usernameError.textContent = 'Username is required.';
-            isValid = false;
-        }
+        // Get email and password values
+        const email = loginEmailInput.value;
+        const password = loginPasswordInput.value;
 
-        if (passwordInput.value.trim() === '') {
-            passwordError.textContent = 'Password is required.';
-            isValid = false;
-        }
-
-        if (isValid) {
-            console.log('Form is valid. Proceed with login.');
-            
-            // Redirect to home.html after successful login
-            window.location.href = 'home.html';
+        // Check if email exists and password matches
+        const userData = JSON.parse(localStorage.getItem(email));
+        if (userData && userData.password === password) {
+            loginSuccessMessage.textContent = `Welcome back, ${userData.name}!`;
+            localStorage.setItem('loggedInUser', email); // Store logged in user
+            window.location.href = 'profile.html'; // Redirect to home page
+        } else {
+            loginErrorMessage.textContent = "Invalid email or password!";
         }
     });
 
@@ -46,3 +39,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+window.onload = function() {
+    // Check if a user is already logged in
+    const loggedInUserEmail = localStorage.getItem('loggedInUser');
+    if (loggedInUserEmail) {
+        // Redirect to home if user is logged in
+        window.location.href = 'profile.html';
+    } else {
+        // Show the register form or login form if not logged in
+        showForm('register');
+    }
+};
