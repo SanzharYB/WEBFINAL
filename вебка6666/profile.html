@@ -1,49 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
-    <link rel="stylesheet" href="styles/profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles/profile.css">
 </head>
 <body>
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="faq.html">FAQ</a>
-    </nav>
-  
-    <div class="profile-container">
-        <div class="profile-card">
-            <img src="images/default_pic.jpg" alt="Profile Picture" class="profile-pic">
-            <div class="profile-info">
-                <h2 id="profile-name">User Name</h2>
-                <p class="bio">Welcome to your profile page!</p>
-            </div>
-        </div>
-    </div>
-<button class="btn-logout">Log Out</button>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const loggedInUserEmail = localStorage.getItem("loggedInUser");
-            
-            if (loggedInUserEmail) {
-                const user = JSON.parse(localStorage.getItem(loggedInUserEmail));
-                
-                if (user) {
-                    document.getElementById("profile-name").innerText = user.name;
-                }
-            } else {
-                window.location.href = "registr.html";
-            }
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+  
+    <div class="profile-container">
+        <div class="profile-card">
+            <img src="images/default_pic.jpg" alt="Profile Picture" class="profile-pic">
+            <div class="profile-info">
+                <h2 id="profile-name">User Name</h2>
+                <p class="bio">Welcome to your profile page!</p>
+            </div>
+        </div>
+    </div>
 
-            document.querySelector(".btn-logout").addEventListener("click", function () {
-                localStorage.removeItem("loggedInUser");
-                window.location.href = "log.html"; 
-            });
-        });  
-    </script>
+    <!-- Weather Section -->
+    <div class="weather-info">
+        <h3>Current Weather</h3>
+        <p id="weather-location">Location: <span id="location"></span></p>
+        <p id="weather-description">Weather: <span id="description"></span></p>
+        <p id="weather-temp">Temperature: <span id="temperature"></span>°C</p>
+    </div>
+
+    <button class="btn-logout">Log Out</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get logged-in user data
+            const loggedInUserEmail = localStorage.getItem("loggedInUser");
+            
+            if (loggedInUserEmail) {
+                const user = JSON.parse(localStorage.getItem(loggedInUserEmail));
+                
+                if (user) {
+                    document.getElementById("profile-name").innerText = user.name;
+                }
+            } else {
+                window.location.href = "registr.html";
+            }
+
+            // Logout functionality
+            document.querySelector(".btn-logout").addEventListener("click", function () {
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "log.html"; 
+            });
+
+            // Fetch and display weather data
+            const apiKey = "6b50fcb2ee6d4235aa001e3910b843d6"; // Your Weatherbit API key
+            const city = "Astana"; // Specified city
+
+            fetch(`https://api.weatherbit.io/v2.0/current?city=${city}&key=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    const weather = data.data[0];
+                    document.getElementById("location").innerText = `${weather.city_name}, ${weather.country_code}`;
+                    document.getElementById("description").innerText = weather.weather.description;
+                    document.getElementById("temperature").innerText = weather.temp;
+                })
+                .catch(error => console.error("Error fetching weather data:", error));
+        });
+    </script>
 </body>
 </html>
