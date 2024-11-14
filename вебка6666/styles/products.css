@@ -125,7 +125,6 @@ body {
   backdrop-filter: blur(10px);
 }
 
-
 .filter-group {
   margin-bottom: 15px;
 }
@@ -175,11 +174,6 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 250px; /* Fixed width to make products horizontally aligned */
-  transition: transform 0.3s ease;
-}
-
-.product-item:hover {
-  transform: scale(1.05);
 }
 
 .product-card {
@@ -196,7 +190,7 @@ body {
 .product-card h3 {
   margin: 15px 0;
   font-size: 1.2em;
-  color:#444
+  color: #444;
 }
 
 .product-card p {
@@ -240,7 +234,6 @@ body {
 @media (max-width: 480px) {
   .main-content {
     padding: 10px;
-    
   }
 
   .product-grid {
@@ -257,4 +250,9 @@ body {
     display: block;
     margin-bottom: 10px;
   }
+}
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: none;
 }

@@ -7,31 +7,30 @@
     <title>Product Filters</title>
     <link rel="stylesheet" href="styles/products.css">
     <link rel="stylesheet" href="styles/darktheme.css">
-
 </head>
 
 <body>
     <header id="header">
         <h1 class="header-title">Always Clothed</h1>
         <nav id="navbar" role="navigation" aria-label="Main Navigation">
-          <a class="nav-link" href="home.html" tabindex="0">Home</a> |
-          <a class="nav-link" href="products.html" tabindex="0">Products</a> |
-          <a class="nav-link" href="about.html" tabindex="0">About Us</a> |
-          <a class="nav-link" href="contact.html" tabindex="0">Contact Us</a> |
-          <a class="nav-link" href="faq.html" tabindex="0">FAQ</a>
-          <a id="theme-toggle" tabindex="0">Switch to Night Mode</a>
-          <a class="nav-link" href="registr.html">Sign in</a> 
-          <a class="nav-link" href="log.html">Log in</a>
+            <a class="nav-link" href="home.html" tabindex="0">Home</a> |
+            <a class="nav-link" href="products.html" tabindex="0">Products</a> |
+            <a class="nav-link" href="about.html" tabindex="0">About Us</a> |
+            <a class="nav-link" href="contact.html" tabindex="0">Contact Us</a> |
+            <a class="nav-link" href="faq.html" tabindex="0">FAQ</a>
+            <a id="theme-toggle" tabindex="0">Switch to Night Mode</a>
+            <a class="nav-link" href="registr.html">Sign in</a>
+            <a class="nav-link" href="log.html">Log in</a>
         </nav>
         <hr class="divider">
-      </header>
+    </header>
 
     <main class="main-content">
         <section id="filter-section">
             <h2 class="section-heading">Filters</h2>
             <div class="filter-group">
                 <label for="search-term">Search:</label>
-                    <input type="text" id="search-term" placeholder="Search by name...">
+                <input type="text" id="search-term" placeholder="Search by name...">
                 <label for="gender">Gender:</label>
                 <select id="gender">
                     <option value="all">All</option>
@@ -68,47 +67,45 @@
         </section>
 
         <section class="product-grid">
-            <div class="product-item" data-gender="male" data-type="shirt" data-season="summer" data-price="25.00">
-                <div class="product-card">
-                    <img src="shirt.jpg" alt="Shirt">
-                    <h3>Summer Shirt</h3>
-                    <p>Price: $25</p>
+            <a href="product-detail.html" class="product-link">
+                <div class="product-item" data-gender="male" data-type="shirt" data-season="summer" data-price="25.00">
+                    <div class="product-card">
+                        <img src="images/shirt.jpg" alt="Summer Shirt">
+                        <h3>Summer Shirt</h3>
+                        <p>Price: $25</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-item" data-gender="male" data-type="shirt" data-season="summer" data-price="25.00">
-                <div class="product-card">
-                    <img src="shirt.jpg" alt="Shirt">
-                    <h3>Summer Shirt</h3>
-                    <p>Price: $25</p>
+            <a href="product-detail.html" class="product-link">
+                <div class="product-item" data-gender="female" data-type="dress" data-season="fall" data-price="50.00">
+                    <div class="product-card">
+                        <img src="images/dress.jpg" alt="Elegant Dress">
+                        <h3>Elegant Dress</h3>
+                        <p>Price: $50</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-item" data-gender="female" data-type="dress" data-season="fall" data-price="50.00">
-                <div class="product-card">
-                    <img src="images/dress.jpg" alt="Elegant Dress">
-                    <h3>Elegant Dress</h3>
-                    <p>Price: $50</p>
+            <a href="product-detail.html" class="product-link">
+                <div class="product-item" data-gender="unisex" data-type="shoes" data-season="spring" data-price="20.00">
+                    <div class="product-card">
+                        <img src="images/kid-shoes.jpg" alt="Kids Shoes">
+                        <h3>Kids Shoes</h3>
+                        <p>Price: $20</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-item" data-gender="unisex" data-type="shoes" data-season="spring" data-price="20.00">
-                <div class="product-card">
-                    <img src="images/kid-shoes.jpg" alt="Kids Shoes">
-                    <h3>Kids Shoes</h3>
-                    <p>Price: $20</p>
+            <a href="product-detail.html" class="product-link">
+                <div class="product-item" data-gender="male" data-type="coat" data-season="winter" data-price="100.00">
+                    <div class="product-card">
+                        <img src="images/coat.jpg" alt="Winter Coat">
+                        <h3>Winter Coat</h3>
+                        <p>Price: $100</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="product-item" data-gender="male" data-type="coat" data-season="winter" data-price="100.00">
-                <div class="product-card">
-                    <img src="images/coat.jpg" alt="Winter Coat">
-                    <h3>Winter Coat</h3>
-                    <p>Price: $100</p>
-                </div>
-            </div>
-
-
+            </a>
         </section>
     </main>
 
@@ -121,3 +118,4 @@
 </body>
 
 </html>
+    
