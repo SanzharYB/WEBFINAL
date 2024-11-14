@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles/profile.css">
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+  
+    <div class="profile-container">
+        <div class="profile-card">
+            <img src="images/default_pic.jpg" alt="Profile Picture" class="profile-pic">
+            <div class="profile-info">
+                <h2 id="profile-name">User Name</h2>
+                <p class="bio">Welcome to your profile page!</p>
+            </div>
+        </div>
+    </div>
+<button class="btn-logout">Log Out</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Retrieve the logged in user email from localStorage
+            const loggedInUserEmail = localStorage.getItem("loggedInUser");
+            
+            // Check if a user is logged in
+            if (loggedInUserEmail) {
+                // Fetch user data using the email as the key
+                const user = JSON.parse(localStorage.getItem(loggedInUserEmail));
+                
+                // Display the user's information on the profile page
+                if (user) {
+                    document.getElementById("profile-name").innerText = user.name;
+                }
+            } else {
+                // Redirect to sign-up page if no user is logged in
+                window.location.href = "registr.html";
+            }
+
+            // Log out button functionality
+            document.querySelector(".btn-logout").addEventListener("click", function () {
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "log.html"; // Redirect to sign-up after logging out
+            });
+        });  
+    </script>
+</body>
+</html>
