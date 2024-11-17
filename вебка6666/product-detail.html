@@ -10,6 +10,11 @@
 <body>
   <header id="header">
     <h1 class="header-title">Always Clothed</h1>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <nav id="navbar" role="navigation" aria-label="Main Navigation">
       <a class="nav-link" href="home.html" tabindex="0">Home</a> |
       <a class="nav-link" href="products.html" tabindex="0">Products</a> |
@@ -20,7 +25,19 @@
       <a class="nav-link" href="registr.html">Sign in</a> 
       <a class="nav-link" href="log.html">Log in</a>
     </nav>
-    <hr class="divider">
+    <div id="sidebar">
+      <div class="sidebar-links">
+        <a class="nav-link" href="home.html" tabindex="0">Home</a> 
+      <a class="nav-link" href="products.html" tabindex="0">Products</a>
+      <a class="nav-link" href="about.html" tabindex="0">About Us</a> 
+      <a class="nav-link" href="contact.html" tabindex="0">Contact Us</a> 
+      <a class="nav-link" href="faq.html" tabindex="0">FAQ</a>
+      <a id="theme-toggle" tabindex="0">Switch to Night Mode</a>
+      <a class="nav-link" href="registr.html">Sign in</a> 
+      <a class="nav-link" href="log.html">Log in</a>
+      </div>
+    </div>
+    <div id="sidebar-overlay"></div>
   </header>
 
   <main class="main-content">
@@ -83,5 +100,22 @@
   </footer>
   <script src="js files/script.js"></script>
   <script src="js files/productdetail.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('sidebar-overlay');
+
+// Toggle sidebar and overlay
+hamburger.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+  overlay.classList.toggle('active');
+});
+
+// Close sidebar when clicking outside (on overlay)
+overlay.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+  overlay.classList.remove('active');
+});
+  </script>
 </body>
 </html>

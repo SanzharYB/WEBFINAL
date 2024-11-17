@@ -149,6 +149,11 @@ footer p {
   .container {
       padding: 30px 20px;
   }
+  .navbar{
+    width: 100%;
+    align-items: center;
+    align-content: center;
+  }
 
   nav a {
       display: block;
