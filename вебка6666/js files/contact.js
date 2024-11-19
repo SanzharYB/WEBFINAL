@@ -1,40 +1,30 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const contactForm = document.getElementById('contact-form');
-    
-    contactForm.addEventListener('submit', async (event) => {
-      event.preventDefault(); 
-      
+  const contactForm = document.getElementById('contact-form');
+  const resetButton = document.getElementById('reset-button');
+
+  // Handle form submission
+  contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Gather form data
       const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
+          name: document.getElementById('name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          message: document.getElementById('message').value.trim()
       };
-      
-      try {
-        const response = await fetch('http://localhost:3000/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        });
-  
-        if (response.ok) {
-          alert('Message sent successfully!'); 
-          contactForm.reset(); 
-        } else {
-          alert('Error sending message. Please try again later.');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Network error. Please check your connection.');
-      }
-    });
-  
-    // Reset button functionality
-    const resetButton = document.getElementById('reset-button');
-    resetButton.addEventListener('click', () => {
-      contactForm.reset(); // Reset all form fields
-    });
+
+      // Save to local storage
+      let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+      contacts.push(formData);
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+
+      // Notify the user
+      alert('Message saved successfully to local storage!');
+      contactForm.reset(); // Clear form fields
   });
-  
+
+  // Handle reset button functionality
+  resetButton.addEventListener('click', () => {
+      contactForm.reset(); // Clear all form fields
+  });
+});
